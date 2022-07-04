@@ -1,0 +1,68 @@
+CRUD = Create Read Update Delete
+READ
+SELECT*FROM tabloAdi WHERE alan='degeri' ORDER BY alan1, alan2 ASC;
+
+
+INSERT INTO TabloAdi (alan1, alan2, alan3) VALUES (deger1,deger2,deger3)
+
+Veri tabanındaki bir veriyi güncellemek için kullanılır.
+UPDATE tabloAdi SET alan1='yazmak istediginiz deger' WHERE id=1;
+
+Silme İşlemi İçin
+DELETE FROM tabloAdi WHERE id=1;
+
+KOMUT SATIRINDAN VERİ tabanındaki
+mysql> CREATE DATABASE deneme; <!--Veri Tabanı Oluşturulmuş Olur-->
+
+mysql> USE deneme; <!--Bundan sonraki işlemler deneme veritabanında devam eder.-->
+
+mysql> CREATE TABLE subjects (
+    -> id int(11) NOT NULL auto_increment,
+    -> menu_name varchar(30) NOT NULL,
+    -> position int(3) NOT NULL,
+    -> visible tinyint(1) NOT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+
+
+mysql> INSERT INTO subjects (menu_name, position, visible)
+    -> VALUES ('Uretim', 1, 1);
+
+mysql> SELECT * FROM subjects;
+id  menu_name   position    visible
+1   Uretim          1           1
+
+
+Mutlaka Göz Önünde Bulundurulması Gereken
+
+Bağlantı sağlayın
+Veri tabanını seçin
+Veri tabanında sorgularla işlemlerinizi yapın 
+Eğer varsa ilgili veriyi alın 
+Son olarak bağlantıyı kapatın 
+
+<body>
+    <?php
+    $result = mysql_query("SELECT*FROM subjects", $connection);
+    if(!$result)
+    {
+        die("Veri tabanında sorgu çekilemedi:" . mysql_error());
+    }
+    ?>
+</body>
+
+Bir Döngüyü Nasıl Kullanacağız. 
+
+while ($row=mysql_fetch_array($result))
+{
+    echo $row[1]. " ".$row[2]. "<br />";
+}
+
+Veriyle ilgili işlemleri yaptıktan sonra bağlantıyı kaparız.
+</html>
+<?php
+mysql_close($connection);
+?>
+Siz de PHP ile etkileşimli güzel siteler yapmak istiyorsanız bu adımlar yeterli
+
+

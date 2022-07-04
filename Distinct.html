@@ -1,0 +1,24 @@
+SQL ile Distinct Komutu Kullanımı
+
+Üstünde işlem yapacağımız müşteri tablosu
+musterino ad soyad dtarih sehir cinsiyet puan
+1   Ahmet   Cansever    1956-06-02  İstanbul    E   64
+2   Mehmet   Aydın    1956-06-02  İstanbul    E   64
+3   Aliye   Seven    1956-06-02  İstanbul    K   64
+4   Burak   Sayın    1956-06-02  İstanbul    E   64
+5   Beyza   Kılıç    1956-06-02  İstanbul    K   64
+
+DISTINCT birden fazla yazılmış tekrarlanan veriyi teke indirir
+SELECT Distint alanadı FROM tabloadı
+
+Örneğin:
+SELECT distinct cinsiyet FROM müsteri
+musterino ad soyad dtarih sehir cinsiyet puan
+1   Ahmet   Cansever    1956-06-02  İstanbul    E   64
+2   Mehmet   Aydın    1956-06-02  İstanbul    E   64
+
+Cinsiyete göre birden fazla olan veriyi teke indiri, sadece ilk
+gösterileni ekranda gösterir.
+
+Not: ekran çıktı tam olarak böyle olmaz sadece cinsiyet alan
+gösterilir ama ben tüm alanları gösterdim daha iyi anlamamız için
